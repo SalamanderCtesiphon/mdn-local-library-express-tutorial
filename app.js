@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// set up mongoose connection
+// set up mongoose connection etc
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = "mongodb+srv://swbrookshire:database@cluster0.sgzukzp.mongodb.net/local_library?retryWrites=true&w=majority"
