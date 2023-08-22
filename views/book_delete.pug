@@ -1,5 +1,28 @@
 extends layout
 
 block content
+  h1 #{title}
 
-  h1 books delete not implemented yet nigga
+  if book_instances.length
+
+    p #[strong Delete the following book instances before attempting to delete this book.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Books
+
+      dl
+      each book_instance in book_instances
+        dt
+          a(href=book_instance.url) #{book.title}
+        dd #{book.summary}
+
+  else
+    p Do you really want to delete this Book?
+    | #{book.title}
+
+    form(method='POST' action='')
+      div.form-group
+        input#authorid.form-control(type='hidden',name='authorid', required='true', value=book._id )
+
+      button.btn.btn-primary(type='submit') Delete
